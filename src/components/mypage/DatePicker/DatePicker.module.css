@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 18px 0;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin: 0 12px;
+  padding: 8px;
+}
+
+.button > svg {
+  width: 10px;
+}
+
+.button.hide {
+  visibility: hidden;
+}

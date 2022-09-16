@@ -1,0 +1,33 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper.one {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper.two {
+  width: 50%;
+  height: 100%;
+}
+
+.wrapper.multi {
+  width: 50%;
+  height: 50%;
+}
+
+.wrapper.maxium {
+  width: 30%;
+  height: 50%;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: rotateY(180deg);
+}

@@ -1,0 +1,62 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.bookmark_btn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 7%;
+  padding: 0;
+  z-index: 100px;
+}
+
+.user_icon {
+  display: flex;
+  align-items: baseline;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  height: 11%;
+  gap: 5px;
+}
+
+.user_icon > span {
+  font-size: 0.8rem;
+  color: var(--gray300);
+  margin-left: 3px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.875rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.title > span {
+  max-width: calc(100% - (1rem + 6px));
+}
+
+.title > svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--gray700);
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

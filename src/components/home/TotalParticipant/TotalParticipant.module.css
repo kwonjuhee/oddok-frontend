@@ -1,0 +1,35 @@
+.participant {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1.3em;
+  color: white;
+}
+
+.count_icon {
+  height: 2.6em;
+  gap: 0.7em;
+  display: flex;
+  margin-bottom: 0.7em;
+  padding: 0 0.3em;
+}
+
+.count_box {
+  display: flex;
+  align-items: flex-end;
+}
+
+.text {
+  flex: 1 1 70%;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.button {
+  flex: 1 1 30%;
+  padding: 0.7em;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 4px;
+  color: var(--gray950);
+  background-color: var(--primary);
+}

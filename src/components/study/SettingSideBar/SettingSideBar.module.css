@@ -1,0 +1,87 @@
+.side_box {
+  flex: 1 1 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  padding: 32px;
+  background-color: var(--gray950);
+  color: var(--gray100);
+}
+
+.side_box h1 {
+  margin: 0;
+  margin-top: 16px;
+  font-size: 2rem;
+}
+
+.hashtags {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hashtags > li {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  padding: 6px 10px;
+  font-size: 0.875rem;
+}
+
+.hashtags svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.text_field {
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.rule {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.rule > div {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+/* .bgm_field {
+  display: flex;
+  align-items: center;
+}
+
+.bgm_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  margin-right: 8px;
+} */
+
+.button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  background-color: var(--primary);
+  color: var(--gray950);
+  font-size: 0.875rem;
+  font-weight: 600;
+}

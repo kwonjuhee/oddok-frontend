@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.studyroom_list h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}

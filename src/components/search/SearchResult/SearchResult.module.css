@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.container h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+}

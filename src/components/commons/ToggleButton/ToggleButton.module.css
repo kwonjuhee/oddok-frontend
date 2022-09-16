@@ -1,0 +1,34 @@
+.toggle_button {
+  cursor: pointer;
+}
+
+.toggle_button input {
+  display: none;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0.8em 1em;
+  background-color: var(--gray900);
+  color: var(--gray100);
+  border-radius: 99px;
+}
+
+.icon {
+  margin-right: 4px;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.toggle_button input:checked + div {
+  color: var(--gray950);
+  background-color: var(--primary);
+}
