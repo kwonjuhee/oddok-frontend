@@ -1,10 +1,11 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { errorState } from "@recoil/error-state";
 import { Modal } from "@components/commons";
 
-function ErrorModal({ history }) {
+function ErrorModal() {
+  const navigate = useNavigate();
   const [error, setError] = useRecoilState(errorState);
 
   const handleClose = () => {
@@ -13,7 +14,7 @@ function ErrorModal({ history }) {
 
   const redirect = (path) => {
     setError(null);
-    history.push(path);
+    navigate(path);
   };
 
   return (
@@ -31,4 +32,4 @@ function ErrorModal({ history }) {
   );
 }
 
-export default withRouter(ErrorModal);
+export default ErrorModal;

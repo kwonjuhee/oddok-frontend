@@ -1,16 +1,17 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./NotFoundPage.module.css";
 
 function NotFoundPage() {
-  const history = useHistory();
+  const navigate = useNavigate();
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>요청하신 페이지를 찾을 수 없습니다.</div>
       <button
         type="button"
         onClick={() => {
-          history.push("/");
+          navigate("/");
         }}
       >
         메인으로 돌아가기🏠

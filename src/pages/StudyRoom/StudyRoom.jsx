@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useRecoilState, useSetRecoilState, useResetRecoilState } from "recoil";
 import { roomInfoState, deviceState } from "@recoil/studyroom-state";
 import { errorState } from "@recoil/error-state";
@@ -22,7 +22,7 @@ import useModal from "@hooks/useModal";
 import styles from "./StudyRoom.module.css";
 
 function StudyRoom() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { roomId } = useParams();
   const [session, setSession] = useState(initSession());
   const { localUser, setLocalUser, videoActive, audioActive, toggleVideo, toggleAudio } = useManageLocalUser();
@@ -60,14 +60,14 @@ function StudyRoom() {
     await leaveStudyRoom(roomId);
     session.disconnect();
     resetState();
-    history.replace("/");
+    navigate("/", { replace: true });
   };
 
   const goToSharePage = async () => {
     await leaveStudyRoom(roomId);
     session.disconnect();
     resetState();
-    history.replace("/share/study-time");
+    navigate("/share/study-time", { replace: true });
   };
 
   const startOpenvidu = async () => {

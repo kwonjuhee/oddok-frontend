@@ -1,12 +1,12 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useModal } from "@hooks";
 import { Modal } from "@components/commons";
 import { Cancel } from "@icons";
 import styles from "./CloseButton.module.css";
 
 function CloseButton() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { isModal, openModal, closeModal } = useModal();
 
   return (
@@ -25,7 +25,7 @@ function CloseButton() {
           }
           onClose={closeModal}
           onSubAction={{ text: "취소", action: closeModal }}
-          onAction={{ text: "나가기", action: () => history.replace("/") }}
+          onAction={{ text: "나가기", action: () => navigate("/", { replace: true }) }}
         />
       )}
     </>

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { getStudyRoomList } from "@api/study-room-api";
 import { Dropdown } from "@components/commons";
 import { TabMenu, FeedGrid } from "@components/home";
 import { ArrowDown } from "@icons";
-import { useSearchParams } from "@hooks";
 import { STUDY_FILTER_OPTIONS, STUDY_SORT_OPTIONS } from "@utils/constants/options";
 import styles from "./StudyRoomFeed.module.css";
 
 function StudyRoomList({ tagFilter }) {
-  const { searchParams, setSearchParams } = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [loadedStudyRooms, setLoadedStudyRooms] = useState([]);
   const [nextPage, setNextPage] = useState(1);
   const [isLastPage, setIsLastPage] = useState(false);
@@ -41,23 +41,38 @@ function StudyRoomList({ tagFilter }) {
     });
   };
 
+  console.log([...searchParams.entries()]);
+
   return (
     <div className={styles.container}>
       <div className={styles.head}>
         <TabMenu
           defaultValue={searchParams.get("category")}
-          setCurrentCategory={(value) => setSearchParams("category", value)}
+          setCurrentCategory={(value) => {
+            console.log(value);
+            if (!value) searchParams.delete("category");
+            else searchParams.set("category", value);
+            setSearchParams(searchParams);
+          }}
         />
         <div className={styles.filters}>
           <Dropdown
             options={STUDY_FILTER_OPTIONS}
             defaultValue={searchParams.get("isPublic")}
-            onSelect={(value) => setSearchParams("isPublic", value)}
+            onSelect={(value) => {
+              if (!value) searchParams.delete("isPublic");
+              else searchParams.set("isPublic", value);
+              setSearchParams(searchParams);
+            }}
           />
           <Dropdown
             options={STUDY_SORT_OPTIONS}
             defaultValue={searchParams.get("sort")}
-            onSelect={(value) => setSearchParams("sort", value)}
+            onSelect={(value) => {
+              if (!value) searchParams.delete("sort");
+              else searchParams.set("sort", value);
+              setSearchParams(searchParams);
+            }}
           />
         </div>
       </div>

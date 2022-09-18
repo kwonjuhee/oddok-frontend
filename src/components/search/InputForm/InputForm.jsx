@@ -1,17 +1,19 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Input } from "@components/commons";
-import { useSearchParams, useSearchHistory, useInput } from "@hooks";
+import { useSearchHistory, useInput } from "@hooks";
 import styles from "./InputForm.module.css";
 
 function InputForm() {
+  const navigate = useNavigate();
   const titleRef = useRef();
-  const { setSearchParams } = useSearchParams();
   const { addHistory } = useSearchHistory();
 
   const searchTitleHandler = () => {
     if (titleRef.current.value === "") return;
     addHistory(titleRef.current.value);
-    setSearchParams("title", titleRef.current.value, "/search/studyroom");
+
+    navigate({ pathname: "/search/studyroom", search: `?title=${titleRef.current.value}` });
   };
 
   const { pressEnter } = useInput(titleRef, () => {

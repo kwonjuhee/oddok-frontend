@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useRecoilState } from "recoil";
-import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { userState } from "@recoil/user-state";
 import { Search, Profile } from "@icons";
 import { getUserInfo } from "@api/user-api";
@@ -10,7 +10,7 @@ import { useModal, useGoToPage, useOutSideClick } from "@hooks";
 import styles from "./Header.module.css";
 
 function Header() {
-  const history = useHistory();
+  const { pathname } = useLocation();
   const [user, setUserState] = useRecoilState(userState);
   const [isDropdown, setIsDropdown] = useState(false);
   const { isModal, openModal, closeModal } = useModal();
@@ -46,20 +46,12 @@ function Header() {
         </div>
         <ul className={styles.pages}>
           <li>
-            <button
-              type="button"
-              className={history.location.pathname === "/" ? styles.clicked : ""}
-              onClick={goToMain}
-            >
+            <button type="button" className={pathname === "/" ? styles.clicked : ""} onClick={goToMain}>
               스터디룸
             </button>
           </li>
           <li>
-            <button
-              type="button"
-              className={history.location.pathname === "/mypage" ? styles.clicked : ""}
-              onClick={goToMyPage}
-            >
+            <button type="button" className={pathname === "/mypage" ? styles.clicked : ""} onClick={goToMyPage}>
               마이페이지
             </button>
           </li>

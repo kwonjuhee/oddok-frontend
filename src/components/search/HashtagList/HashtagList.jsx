@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { getPopluarHashtag } from "@api/hashtag-api";
 import { HashtagButton } from "@components/commons";
-import { useSearchParams } from "@hooks";
 import styles from "./HashtagList.module.css";
 
 function HashtagList({ onToggle }) {
-  const { searchParams } = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [hashtags, setHashtags] = useState([]);
 
   useEffect(() => {

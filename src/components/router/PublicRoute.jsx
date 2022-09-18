@@ -1,12 +1,12 @@
-import { userState } from "@recoil/user-state";
 import React from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
+import { userState } from "@recoil/user-state";
 
-function PublicRoute({ component: Component, restricted, ...rest }) {
+function PublicRoute({ component, restricted }) {
   const user = useRecoilValue(userState);
 
-  return <Route {...rest} render={() => (user.isLogin && restricted ? <Redirect to="/" /> : <Component />)} />;
+  return user.isLogin && restricted ? <Navigate to="/" /> : component;
 }
 
 export default PublicRoute;

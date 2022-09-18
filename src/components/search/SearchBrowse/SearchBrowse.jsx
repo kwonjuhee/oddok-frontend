@@ -1,17 +1,17 @@
 import React from "react";
-import { useSearchParams } from "@hooks";
+import { useNavigate } from "react-router-dom";
 import { HashtagList, SearchHistory } from "..";
 import styles from "./SearchBrowse.module.css";
 
 function SearchBrowse() {
-  const { setSearchParams } = useSearchParams();
+  const navigate = useNavigate();
 
   const searchHashtag = (e) => {
-    setSearchParams("hashtag", e.target.value, "/search/studyroom");
+    navigate({ pathname: "/search/studyroom", search: `?hastag=${e.target.value}` });
   };
 
   const searchTitle = (text) => {
-    setSearchParams("title", text, "/search/studyroom");
+    navigate({ pathname: "/search/studyroom", search: `?title=${text}` });
   };
 
   return (

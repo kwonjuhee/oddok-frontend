@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { StudyRoomFeed } from "@components/home";
-import { useSearchParams } from "@hooks";
 import { HashtagList } from "..";
 import styles from "./SearchResult.module.css";
 
 function SearchResult() {
-  const { searchParams } = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedHashtag, setSelectedHashtag] = useState(new Set());
 
   const selectTagFilters = (e) => {
