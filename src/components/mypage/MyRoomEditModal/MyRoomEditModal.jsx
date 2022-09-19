@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { updateStudyRoom } from "@api/study-room-api";
 import { deleteStudyRoom } from "@api/mypage-api";
-import { Modal } from "@components/commons";
-import { SettingForm } from "@components/study";
-import { Room, EditButton } from "@components/mypage";
+import { Modal } from "@components/@commons";
+import { SettingForm } from "@components/studyroom";
+import { MyRoom, EditButton } from "@components/mypage";
 import styles from "./MyRoomEditModal.module.css";
 
 function MyRoomEditModal({ roomData, onClose, refetch }) {
@@ -39,7 +39,7 @@ function MyRoomEditModal({ roomData, onClose, refetch }) {
     <div className={styles.box}>
       <h3>생성 스터디룸</h3>
       <div className={styles.item}>
-        <Room roomData={inputData} />
+        <MyRoom roomData={inputData} />
         <div className={styles.buttons}>
           <EditButton onClick={editHandler} />
           <EditButton onClick={deleteHandler} deleteBtn />

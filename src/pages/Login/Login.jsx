@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer, Header } from "@components/home";
+import { Footer, Header } from "@components/@layouts";
 import { KAKAO_AUTH_URL } from "@api/auth/kakao";
 import styles from "./Login.module.css";
 

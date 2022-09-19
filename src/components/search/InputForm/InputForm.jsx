@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Input } from "@components/commons";
+import { Input } from "@components/@commons";
 import { useSearchHistory, useInput } from "@hooks";
 import styles from "./InputForm.module.css";
 

@@ -3,8 +3,8 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { roomInfoState } from "@recoil/studyroom-state";
 import { errorState } from "@recoil/error-state";
 import { startStudyRoom } from "@api/study-room-api";
-import { Loading } from "@components/commons";
-import { SettingRoom } from "@components/study";
+import { Loading } from "@components/@commons";
+import { SettingRoom } from "@components/studyroom";
 import { useGoToPage, useAsync } from "@hooks";
 
 function CreateRoom() {

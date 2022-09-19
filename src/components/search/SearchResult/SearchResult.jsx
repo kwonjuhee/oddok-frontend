@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { StudyRoomFeed } from "@components/home";
+import { StudyRoomCardList } from "@components/main";
 import { HashtagList } from "..";
 import styles from "./SearchResult.module.css";
 
@@ -25,7 +25,7 @@ function SearchResult() {
         <h3>태그 필터</h3>
         <HashtagList onToggle={selectTagFilters} />
       </div>
-      <StudyRoomFeed tagFilter={selectedHashtag} />
+      <StudyRoomCardList tagFilter={selectedHashtag} />
     </div>
   );
 }

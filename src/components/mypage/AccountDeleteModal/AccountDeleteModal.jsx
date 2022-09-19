@@ -1,8 +1,8 @@
 import React from "react";
-import { Modal, Loading } from "@components/commons";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { Modal, Loading } from "@components/@commons";
 import { deleteAccount } from "@api/auth/auth-api";
 import useAsync from "@hooks/useAsync";
-import { useRecoilState, useSetRecoilState } from "recoil";
 import { userState } from "@recoil/user-state";
 import { errorState } from "@recoil/error-state";
 

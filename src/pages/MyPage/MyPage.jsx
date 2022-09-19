@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
-import { SideNavBar, MyGoal, StudyTime, MyRoom, MyAccount } from "@components/mypage";
-import { Layout } from "@components/layout";
+import { SideNavBar, MyGoalSection, StudyHistorySection, MyRoomSection, MyAccountSection } from "@components/mypage";
+import { Layout } from "@components/@layouts";
 import styles from "./MyPage.module.css";
 
 function MyPage() {
@@ -24,10 +24,10 @@ function MyPage() {
       <div className={styles.container}>
         <SideNavBar indexRef={indexRef} />
         <main ref={targetRef}>
-          <MyGoal />
-          <StudyTime />
-          <MyRoom />
-          <MyAccount />
+          <MyGoalSection />
+          <StudyHistorySection />
+          <MyRoomSection />
+          <MyAccountSection />
         </main>
       </div>
     </Layout>

@@ -15,8 +15,15 @@ import {
 } from "@recoil/timer-state";
 import { leaveStudyRoom } from "@api/study-room-api";
 import { initSession, connectToSession, connectDevice, initPublisher } from "@api/openvidu-api";
-import { StudyBar, UserVideo, SettingSideBar, ChatSideBar, PlanSidebar, ParticipantSideBar } from "@components/study";
-import { Modal } from "@components/commons";
+import {
+  StudyBar,
+  UserVideo,
+  SettingSideBar,
+  ChatSideBar,
+  PlanSidebar,
+  ParticipantSideBar,
+} from "@components/studyroom";
+import { Modal } from "@components/@commons";
 import { useToggleSideBar, useManageLocalUser, useManageRemoteUsers } from "@hooks";
 import useModal from "@hooks/useModal";
 import styles from "./StudyRoom.module.css";

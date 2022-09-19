@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useModal } from "@hooks";
-import { Modal } from "@components/commons";
+import { Modal } from "@components/@commons";
 import { Cancel } from "@icons";
 import styles from "./CloseButton.module.css";
 

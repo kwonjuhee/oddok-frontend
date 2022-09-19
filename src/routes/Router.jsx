@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import CreateRoom from "@pages/CreateRoom";
 import JoinRoom from "@pages/JoinRoom";
-import MainHome from "@pages/MainHome/MainHome";
+import Main from "@pages/Main/Main";
 import Login from "@pages/Login/Login";
 import Search from "@pages/Search/Search";
 import MyPage from "@pages/MyPage/MyPage";
@@ -16,7 +16,7 @@ import PrivateRoute from "./PrivateRoute";
 function Router() {
   return (
     <Routes>
-      <Route path="/" element={<MainHome />} />
+      <Route path="/" element={<Main />} />
       <Route path="/search/*" element={<Search />} />
       <Route element={<PublicRoute />}>
         <Route path="/login" element={<Login />} />

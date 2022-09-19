@@ -3,7 +3,7 @@ import Picker from "react-datepicker";
 import ko from "date-fns/locale/ko";
 import { addDays, subDays } from "date-fns";
 import { ArrowLeft, ArrowRight } from "@icons";
-import { CalendarHeader } from "@components/commons";
+import { CalendarHeader } from "@components/@commons";
 import { dateFormatting } from "@utils";
 import CustomInput from "./CustomInput";
 import "react-datepicker/dist/react-datepicker.css";
