@@ -1,87 +1,47 @@
-.bookmark {
-  color: white;
-}
-
-.detail,
-.rule {
-  margin: 0;
-}
-
-.count_info {
-  display: flex;
-  flex-direction: column;
-  padding: 0 1em;
-  padding-bottom: 1.3em;
-}
-
-.count_icon {
-  height: 2.6em;
-  gap: 0.7em;
-  display: flex;
-  margin-bottom: 0.7em;
-  padding: 0 0.3em;
-}
-
-.count_box {
-  display: flex;
-  align-items: flex-end;
-}
-
-.text {
-  flex: 1 1 70%;
-  font-size: 1.8rem;
-  font-weight: 600;
-}
-
-.button {
-  flex: 1 1 30%;
-  padding: 0.8em 0;
-  font-weight: 700;
-  border-radius: 4px;
-  color: var(--gray950);
-  background-color: var(--primary);
-}
-
-.info {
+.container {
+  position: relative;
   display: flex;
   justify-content: space-between;
+  gap: 16px;
+  padding: 32px 0;
+}
+
+.background {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: calc(-50vw + 50%);
+  z-index: -1;
   background-color: black;
-  padding: 2em 1em;
 }
 
 .thumbnail {
-  width: 90%;
+  width: 100%;
   height: 15em;
-  padding: 0.5em;
   background-color: var(--gray900);
 }
 
 .detail_box {
   width: 100%;
-  padding: 0 1em;
 }
 
-.users {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-}
-
-.name {
+.detail_box > h3 {
   margin: 0;
   margin-bottom: 0.7em;
   font-size: 1.2rem;
   font-weight: 500;
 }
 
-.detail {
-  margin-bottom: 0.3em;
+.detail_box > p {
+  margin: 0;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
 }
 
-.title {
-  margin-right: 0.5em;
+.label {
+  margin-right: 8px;
   font-weight: 500;
-  font-size: 0.9rem;
   color: var(--gray300);
 }
 
@@ -90,19 +50,7 @@
   color: var(--gray500);
 }
 
-.rule {
-  display: flex;
-}
-
-.rule_title {
-  flex: 1 1 20%;
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: var(--gray300);
-}
-
-.rule_content {
-  flex: 1 1 80%;
+.content_rule {
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 4;
@@ -112,7 +60,13 @@
   color: var(--gray500);
 }
 
-.list {
+.ranking {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ranking > li {
   display: flex;
   align-items: center;
   margin: 0.2em 0;
@@ -122,8 +76,7 @@
 }
 
 .nickname {
-  flex: 1 1 60%;
-  margin: 0;
+  margin-right: auto;
   font-size: 0.9rem;
   color: var(--gray700);
 }
@@ -133,10 +86,22 @@
   color: var(--gray700);
 }
 
-.list.active .nickname {
+.ranking > li.active > .nickname {
   color: var(--primary);
 }
 
-.list.active .time {
+.ranking > li.active > .time {
   color: var(--gray500);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .thumbnail {
+    width: 300px;
+  }
 }

@@ -1,3 +1,15 @@
 .tab_menu {
   display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.tab_menu::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .tab_menu {
+    width: 100%;
+  }
 }

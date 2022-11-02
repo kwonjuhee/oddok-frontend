@@ -1,8 +1,8 @@
-/* eslint-disable no-restricted-syntax */
 import React, { useEffect, useState } from "react";
-import { PasswordModal, UserCount } from "@components/@commons";
+import { useRecoilState } from "recoil";
+import { bookmarkState } from "@recoil/bookmark-state";
+import { getBookmark } from "@api/bookmark-api";
 import { Thumbnail } from "@icons";
-import { useModal, useGoToPage } from "@hooks";
 import styles from "./Bookmark.module.css";
 
 const initialUsers = [
@@ -13,18 +13,22 @@ const initialUsers = [
   { id: 5, nickname: null, joinTime: null, isActive: false },
 ];
 
-function Bookmark({ bookmark }) {
-  const { currentUsers, endAt, hashtags, id, isPublic, limitUsers, name, participant, rule } = bookmark;
+function Bookmark() {
+  const [bookmark, setBookmark] = useRecoilState(bookmarkState);
+  const { currentUsers, endAt, hashtags, limitUsers, name, participant, rule } = bookmark ?? {};
+
   const [users, setUsers] = useState(initialUsers);
-  const { isModal, openModal, closeModal } = useModal();
-  const { goToSetting } = useGoToPage();
+
+  useEffect(() => {
+    getBookmark()
+      .then((response) => setBookmark(response))
+      .catch((error) => console.error(error));
+  }, []);
 
   // 북마크한 스터디룸의 현재 참여자 리스트
   useEffect(() => {
-    if (participant.length === 0) {
-      setUsers([...initialUsers]);
-      return;
-    }
+    if (!bookmark || !participant) return;
+
     const updatedUsers = [...users];
     for (let i = 0; i < users.length; i += 1) {
       if (!participant[i]) {
@@ -36,78 +40,57 @@ function Bookmark({ bookmark }) {
       }
     }
     setUsers(updatedUsers);
-  }, []);
+  }, [bookmark]);
 
-  const onStartBtnClick = () => {
-    if (isPublic) {
-      goToSetting(id);
-    } else {
-      openModal();
-    }
-  };
+  if (!bookmark) return null;
 
   return (
-    <>
-      {isModal && <PasswordModal roomId={id} onClose={closeModal} />}
-      <section className={styles.bookmark}>
-        <div className={styles.count_info}>
-          <div className={styles.count_icon}>
-            <UserCount number={currentUsers} />
-          </div>
-          <div className={styles.count_box}>
-            <span className={styles.text}>스터디원 {currentUsers}명이 공부 중이에요</span>
-            <button className={styles.button} type="button" onClick={onStartBtnClick}>
-              바로 스터디 시작하기
-            </button>
-          </div>
-        </div>
-        <div className={styles.info}>
-          <div className={styles.thumbnail}>
-            <Thumbnail />
-          </div>
-          <div className={styles.detail_box}>
-            <h3 className={styles.name}>{name}</h3>
-            <p className={styles.detail}>
-              <span className={styles.title}>해시태그</span>
-              {hashtags.length !== 0 ? (
-                hashtags.map((hashtag) => (
-                  <span key={hashtag} className={styles.content}>
-                    #{hashtag}&nbsp;
-                  </span>
-                ))
-              ) : (
-                <span className={styles.content}>없음</span>
-              )}
-            </p>
-            <p className={styles.detail}>
-              <span className={styles.title}>인원</span>
-              <span className={styles.content}>
-                {currentUsers}명 / {limitUsers}명
+    <div className={styles.container}>
+      <div className={styles.background} />
+      <div className={styles.thumbnail}>
+        <Thumbnail />
+      </div>
+      <div className={styles.detail_box}>
+        <h3>{name}</h3>
+        <p>
+          <span className={styles.label}>해시태그</span>
+          {hashtags ? (
+            hashtags.map((hashtag) => (
+              <span key={hashtag} className={styles.content}>
+                #{hashtag}&nbsp;
               </span>
-            </p>
-            <p className={styles.detail}>
-              <span className={styles.title}>기간</span>
-              <span className={styles.content}>{endAt ? `${endAt}까지` : "없음"}</span>
-            </p>
-            <p className={styles.rule}>
-              <span className={styles.rule_title}>스터디규칙</span>
-              <span className={styles.rule_content}>{rule ?? "없음"}</span>
-            </p>
-          </div>
-          <ul className={styles.users}>
-            {users.map((user) => (
-              <li key={user.id} className={`${styles.list} ${user.isActive && styles.active}`}>
-                <div className={styles.nickname}>
-                  <span>{user.id}.&nbsp;</span>
-                  <span>{user.nickname ?? "현재 스터디원"}</span>
-                </div>
-                <span className={styles.time}>{user.isActive ? `${user.joinTime} ~ 지금까지` : "없음"}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    </>
+            ))
+          ) : (
+            <span className={styles.content}>없음</span>
+          )}
+        </p>
+        <p>
+          <span className={styles.label}>인원</span>
+          <span className={styles.content}>
+            {currentUsers}명 / {limitUsers}명
+          </span>
+        </p>
+        <p>
+          <span className={styles.label}>기간</span>
+          <span className={styles.content}>{endAt ? `${endAt}까지` : "없음"}</span>
+        </p>
+        <p className={styles.content_rule}>
+          <span className={styles.label}>스터디규칙</span>
+          {rule ?? "없음"}
+        </p>
+      </div>
+      <ul className={styles.ranking}>
+        {users.map((user) => (
+          <li key={user.id} className={user.isActive ? styles.active : ""}>
+            <div className={styles.nickname}>
+              <span>{user.id}.&nbsp;</span>
+              <span>{user.nickname ?? "현재 스터디원"}</span>
+            </div>
+            <span className={styles.time}>{user.isActive ? `${user.joinTime} ~ 지금까지` : "없음"}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

@@ -1,0 +1,62 @@
+.container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  background-color: var(--gray900);
+  z-index: var(--z-index-overlay);
+}
+
+.cancel_icon {
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+}
+
+.profile_icon {
+  display: flex;
+}
+
+.profile_icon > svg {
+  width: 48px;
+  height: 48px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px;
+}
+
+.nickname {
+  font-size: 1.2rem;
+}
+
+.btns {
+  display: flex;
+  gap: 12px;
+}
+
+.btns > button {
+  font-size: 0.875rem;
+  color: var(--gray500);
+}
+
+.logout_btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  font-size: 1rem;
+  color: var(--gray500);
+}
+
+.logout_icon path {
+  fill: var(--gray500);
+}

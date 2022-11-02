@@ -1,8 +1,8 @@
-.participant {
+.container {
   display: flex;
-  flex-direction: column;
-  padding-bottom: 1.3em;
-  color: white;
+  justify-content: space-between;
+  align-items: flex-end;
+  white-space: nowrap;
 }
 
 .count_icon {
@@ -13,23 +13,29 @@
   padding: 0 0.3em;
 }
 
-.count_box {
-  display: flex;
-  align-items: flex-end;
-}
-
-.text {
-  flex: 1 1 70%;
+.content > span {
   font-size: 1.8rem;
   font-weight: 600;
 }
 
-.button {
-  flex: 1 1 30%;
+.container > button {
+  flex: 0 1 30%;
   padding: 0.7em;
   font-size: 1rem;
   font-weight: 700;
   border-radius: 4px;
   color: var(--gray950);
   background-color: var(--primary);
+}
+
+@media screen and (max-width: 768px) {
+  .container > button {
+    display: none;
+  }
+
+  .content > span {
+    font-size: 1.4rem;
+    word-break: keep-all;
+    white-space: normal;
+  }
 }

@@ -2,92 +2,64 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5em 2.5em;
+  padding: 24px 30px;
   background-color: var(--gray950);
-  white-space: nowrap;
 }
 
 .logo,
-.pages,
-.buttons {
+.links,
+.menu {
   flex: 1;
   display: flex;
+  white-space: nowrap;
 }
 
-.logo a {
-  text-decoration-line: none;
+.logo > a {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--gray300);
 }
 
-.pages {
+.links {
   justify-content: center;
+  gap: 30px;
 }
 
-.pages button {
-  margin: 0 1em;
+.nav_link {
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--gray600);
 }
 
-.pages button.clicked {
+.nav_link.active,
+.nav_link:hover {
   color: white;
 }
 
-.pages button:hover {
-  color: white;
-}
-
-.buttons {
+.menu {
+  position: relative;
+  display: flex;
   justify-content: flex-end;
   align-items: center;
-  position: relative;
+  gap: 24px;
 }
 
-.search,
-.profile,
-.study_button {
-  margin: 0 1em;
+.menu button {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.profile {
-  display: flex;
-  align-items: center;
-}
-
 .nickname {
-  margin-left: 0.5em;
-  font-size: 0.8rem;
+  margin-left: 8px;
+  font-size: 0.85rem;
 }
 
-.info_buttons {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--gray900);
-  padding: 0.8em 1.5em;
-  position: absolute;
-  margin-top: 0.6em;
-}
-
-.info_buttons li {
-  text-align: center;
-}
-
-.button {
-  padding: 0.7em;
-  font-size: 0.8em;
-}
-
-.study_button {
-  padding: 0.9em 1.2em;
+.study_btn {
+  padding: 10px 14px;
   color: var(--gray950);
   background-color: var(--primary);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 500;
   border-radius: 4px;
 }

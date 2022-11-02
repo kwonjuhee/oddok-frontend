@@ -1,0 +1,28 @@
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+  z-index: var(--z-index-header);
+  background-color: var(--gray950);
+}
+
+.header > a {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gray300);
+}
+
+.menu {
+  display: flex;
+  gap: 16px;
+}
+
+.menu > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

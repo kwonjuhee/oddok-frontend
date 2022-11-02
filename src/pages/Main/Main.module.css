@@ -3,8 +3,20 @@
   flex-direction: column;
   gap: 60px;
 }
-.studyroom_list h2 {
+
+.main h2 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    gap: 20px;
+  }
+
+  .main h2 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
 }

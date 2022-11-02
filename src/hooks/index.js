@@ -8,3 +8,4 @@ export { default as useManageRemoteUsers } from "./studyroom/useManageRemoteUser
 export { default as useMyStream } from "./studyroom/useMyStream";
 export { default as useSearchHistory } from "./search/useSearchHistory";
 export { default as useGoToPage } from "./useGoToPage";
+export { default as useMediaQuery } from "./useMediaQuery";

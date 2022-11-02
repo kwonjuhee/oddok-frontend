@@ -1,22 +1,22 @@
 import React from "react";
 import styles from "./Footer.module.css";
 
-function Footer(props) {
+function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.info}>
+      <div className={styles.container}>
         <div className={styles.title}>
           <span className={styles.logo}>ODDOK</span>
-          <span className={styles.name}>실시간 화상 스터디 서비스</span>
+          <span>실시간 화상 스터디 서비스</span>
         </div>
         <div className={styles.detail}>
-          <div className={styles.contact}>
-            <p className={styles.contents}>Contact</p>
-            <p className={styles.content}>yejin013@naver.com</p>
+          <div>
+            <span className={styles.label}>Contact</span>
+            <span>yejin013@naver.com</span>
           </div>
-          <div className={styles.team}>
-            <p className={styles.contents}>Team</p>
-            <p className={styles.content}>DOBBY @숭실대학교 소프트웨어학부</p>
+          <div>
+            <span className={styles.label}>Team</span>
+            <span>DOBBY @숭실대학교 소프트웨어학부</span>
           </div>
         </div>
       </div>

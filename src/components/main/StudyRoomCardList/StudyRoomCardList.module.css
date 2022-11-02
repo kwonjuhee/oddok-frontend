@@ -7,21 +7,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 24px;
   font-size: 0.75rem;
 }
 
 .filters {
   display: flex;
-}
-
-.filters > div:nth-child(1) {
-  width: 150px;
-  margin-right: 12px;
-}
-
-.filters > div:nth-child(2) {
-  width: 110px;
+  gap: 12px;
+  margin-left: auto;
 }
 
 .footer {
