@@ -3,13 +3,15 @@ import styles from "./Skeleton.module.css";
 
 function Skeleton() {
   return (
-    <li className={styles.item}>
-      <div>
-        <div className={styles.thumbnail} />
+    <li>
+      <div className={styles.thumbnail}>
+        <div className={styles.shimmer} />
       </div>
-      <div>
-        <div className={styles.title} />
-        <div className={styles.hashtag} />
+      <div className={styles.title}>
+        <div className={styles.shimmer} />
+      </div>
+      <div className={styles.hashtag}>
+        <div className={styles.shimmer} />
       </div>
     </li>
   );
