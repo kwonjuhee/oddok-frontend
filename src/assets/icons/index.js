@@ -14,7 +14,6 @@ import { ReactComponent as Pause } from "./pause-fill.svg";
 import { ReactComponent as Dots } from "./three-dots-vertical.svg";
 import { ReactComponent as Circle } from "./circle.svg";
 import { ReactComponent as CheckedCircle } from "./check2-circle.svg";
-import { ReactComponent as Thumbnail } from "./thumbnail.svg";
 import { ReactComponent as Search } from "./search.svg";
 import { ReactComponent as Profile } from "./person-circle.svg";
 import { ReactComponent as Lock } from "./lock.svg";
@@ -52,7 +51,6 @@ export {
   Dots,
   Circle,
   CheckedCircle,
-  Thumbnail,
   Search,
   Profile,
   Lock,

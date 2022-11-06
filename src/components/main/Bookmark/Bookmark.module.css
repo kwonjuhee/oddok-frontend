@@ -18,7 +18,7 @@
 
 .thumbnail {
   width: 100%;
-  height: 15em;
+  margin: auto;
   background-color: var(--gray900);
 }
 
@@ -35,7 +35,7 @@
 
 .detail_box > p {
   margin: 0;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   font-size: 0.9rem;
 }
 

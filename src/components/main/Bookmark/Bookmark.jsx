@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { bookmarkState } from "@recoil/bookmark-state";
 import { getBookmark } from "@api/bookmark-api";
-import { Thumbnail } from "@icons";
+import { Thumbnail } from "@components/@commons";
 import styles from "./Bookmark.module.css";
 
 const initialUsers = [
